@@ -45,6 +45,7 @@ class EventAdmin(admin.ModelAdmin):
             'fields': [
                 ('title', 'color_event'),
                 ('description',),
+                ('price', 'price_old'),
                 ('start', 'end'),
                 ('creator', 'calendar'),
                 ('rule', 'end_recurring_period'),
