@@ -80,6 +80,8 @@ class Event(models.Model):
         verbose_name=_("calendar"))
     color_event = models.CharField(_("Color event"), blank=True, max_length=10)
     objects = EventManager()
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    price_old = models.DecimalField(max_digits=10, decimal_places=2)
 
     class Meta(object):
         verbose_name = _('event')
