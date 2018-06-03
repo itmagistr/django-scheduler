@@ -40,6 +40,10 @@ param_dict_order = {
     'bysecond': 6
 }
 
+EVENT_SC = (
+    (0, _("Opened")),
+    (1, _("Closed")),
+)
 
 class EventManager(models.Manager):
     def get_for_object(self, content_object, distinction='', inherit=True):
@@ -82,6 +86,7 @@ class Event(models.Model):
     objects = EventManager()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     price_old = models.DecimalField(max_digits=10, decimal_places=2)
+    status = models.IntegerField(_("Status code"), choices=EVENT_SC, default=0, help_text=_("The Status codes behavior should be defined into application."))
 
     class Meta(object):
         verbose_name = _('event')
