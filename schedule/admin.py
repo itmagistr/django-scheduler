@@ -35,15 +35,15 @@ class CalendarRelationAdmin(admin.ModelAdmin):
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    list_display = ('title', 'calendar', 'start', 'end')
-    list_filter = ('calendar', 'start')
+    list_display = ('title', 'calendar', 'status', 'start', 'end')
+    list_filter = ('calendar', 'status', 'start')
     ordering = ('-start',)
     date_hierarchy = 'start'
     search_fields = ('title', 'description')
     fieldsets = (
         (None, {
             'fields': [
-                ('title', 'color_event'),
+                ('title', 'color_event', 'status'),
                 ('description',),
                 ('price', 'price_old'),
                 ('start', 'end'),
